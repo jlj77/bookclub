@@ -1,21 +1,20 @@
-config file and some useful shell script
+# Bash scripts for our book club @ nfld.uk
 
-* Generate Rss Feeds
+## gen_feed.sh
 
-generate rss feed in RSS 2.0 format
+Generates a crude RSS feed, based off of `wdiff` output of HTML files in the current working directory. It expects the older file to have an additional .old extension.
 
+### Dependencies
+- wdiff
 
-* Upload Script
+## grab_pads.sh
 
-upload your created/modified folder/files under publish_dir to remote server via system's ftp cmd,
-only need bash, 'find' command, support MacOS/Linux, and may be Win.
+Crawls the master Etherpad for our book club – at: https://pad.nfld.uk/p/bookclub_master – looking for other linked Etherpads to pull down. All of these are exported to HTML files, with any pre-existing copies moved to .old prior to the `curl`.
 
+### Dependencies
+- curl
+- tidy (HTML tidy)
+- lynx
+- gawk
 
-* Generate Google Sitemap
-
-generate google sitemap
-
-
-* JNG/JPNG file generator
-
-JNG/JPNG is a self defined format, combined jpeg and png, better size with alpha channel support, need to decode jpeg & png before display, system will recognize it as jpeg. 
+_(Note: all the regex code could be rewritten to reduce these, of course. But it works!)_
